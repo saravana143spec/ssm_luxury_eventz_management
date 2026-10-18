@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSM Eventz | Luxury Event Management</title>
+    
+    <!-- Google Search Console Verification Meta Tag -->
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE" />
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Fredoka:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables Default (Emerald Theme) */
+        :root {
+            --bg-color: #080d11;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary-accent: #10b981;
+            --accent-gold: #d97706;
+            --text-color: #ffffff;
+            --text-muted: #9ca3af;
+            --glow-color: rgba(16, 185, 129, 0.25);
+        }
+
+        /* Color Themes Definition */
+        [data-theme="purple"] {
+            --primary-accent: #a855f7;
+            --accent-gold: #c084fc;
+            --glow-color: rgba(168, 85, 247, 0.25);
+        }
+
+        [data-theme="rosegold"] {
+            --primary-accent: #f43f5e;
+            --accent-gold: #fb7185;
+            --glow-color: rgba(244, 63, 94, 0.25);
+        }
+
+        [data-theme="neon"] {
+            --primary-accent: #38bdf8;
+            --accent-gold: #818cf8;
+            --glow-color: rgba(56, 189, 248, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 4%;
+            background: rgba(8, 13, 17, 0.92);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .logo-img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .brand-text h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            letter-spacing: 1.5px;
+            color: #f3f4f6;
+        }
+
+        .brand-text p {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-accent);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 18px;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-accent);
+        }
+
+        /* Theme Dropdown */
+        .theme-switcher {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--card-bg);
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-switcher select {
+            background: transparent;
+            color: #fff;
+            border: none;
+            outline: none;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .theme-switcher option {
+            background: #111827;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 5% 60px;
+            background: radial-gradient(circle at center, var(--glow-color) 0%, transparent 70%);
+        }
+
+        .hero-logo-large {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 25px;
+            border-radius: 50%;
+            box-shadow: 0 0 30px var(--glow-color);
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary-accent);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .hero h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            max-width: 900px;
+            margin-bottom: 18px;
+            line-height: 1.25;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 35px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Buttons Styling */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #38bdf8;
+            color: #000;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+        }
+
+        .btn-justdial {
+            background: linear-gradient(135deg, #ff7700, #ff9900);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 119, 0, 0.3);
+        }
+
+        .btn:hover { transform: translateY(-3px); }
+
+        /* General Section Layout */
+        .section {
+            padding: 80px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header .tag {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-header h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.2rem;
+            color: #fff;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 6px;
+        }
+
+        /* Category Filter Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        .cat-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            color: #d1d5db;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: #d97706;
+            color: #000;
+            border-color: #d97706;
+        }
+
+        /* Items Grid */
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 18px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .item-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 18px 22px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .item-card .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #d97706;
+            border-radius: 50%;
+        }
+
+        /* AI Photo Booth Grid */
+        .booth-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto 35px;
+        }
+
+        .booth-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .booth-card:hover {
+            border-color: #d97706;
+            transform: translateY(-5px);
+        }
+
+        .booth-card i {
+            font-size: 2.5rem;
+            color: #d97706;
+            margin-bottom: 15px;
+        }
+
+        .booth-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .booth-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Party Props Grid */
+        .props-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .prop-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 22px 15px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .prop-card:hover { transform: translateY(-3px); }
+
+        .prop-card i {
+            font-size: 1.8rem;
+            color: #f43f5e;
+            margin-bottom: 10px;
+        }
+
+        .prop-card h5 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .prop-card p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Packages Grid */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pkg-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 35px 25px;
+            border-radius: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pkg-card.popular {
+            border-color: #d97706;
+            background: rgba(217, 119, 6, 0.04);
+        }
+
+        .pkg-badge {
+            position: absolute;
+            top: -12px;
+            right: 25px;
+            background: #d97706;
+            color: #000;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pkg-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #d97706;
+        }
+
+        .pkg-card h4 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 4px;
+        }
+
+        .pkg-card .sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .pkg-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pkg-features li {
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            color: #d1d5db;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pkg-features li i {
+            color: #d97706;
+            font-size: 0.9rem;
+        }
+
+        .btn-pkg {
+            width: 100%;
+            justify-content: center;
+            border-radius: 30px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .pkg-card.popular .btn-pkg {
+            background: #d97706;
+            color: #000;
+            border: none;
+        }
+
+        .btn-pkg:hover {
+            transform: translateY(-2px);
+            border-color: #d97706;
+        }
+
+        /* Reviews Grid */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #d1d5db;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            background: #d97706;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .client-details h5 {
+            font-size: 0.95rem;
+            color: #fff;
+        }
+
+        .client-details p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Enquiry Form Styles */
+        .enquiry-form {
+            max-width: 550px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 35px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #d1d5db;
+        }
+
+        .form-group input, 
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group select option {
+            background: #111827;
+            color: #fff;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #d97706;
+        }
+
+        /* Floating Contact Action Buttons */
+        .floating-actions {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+
+        .float-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.4rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .float-btn.wa { background: #25D366; }
+        .float-btn.phone { background: #2563eb; }
+        .float-btn:hover { transform: scale(1.1); }
+
+        /* Footer Section */
+        footer {
+            padding: 60px 5% 30px;
+            background: #040709;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: #d97706;
+            margin-bottom: 6px;
+        }
+
+        .footer-sub {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            border-color: #d97706;
+            color: #d97706;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+        }
+
+        @media (max-width: 850px) {
+            .nav-links { display: none; }
+            .hero h2 { font-size: 1.9rem; }
+            .section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body data-theme="emerald">
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <a href="https://wa.me/919566047449" target="_blank" class="float-btn wa" title="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="tel:9566047449" class="float-btn phone" title="Call Us"><i class="fa-solid fa-phone"></i></a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#home" class="logo-container">
+            <img src="./logo.png" alt="SSM Eventz Logo" class="logo-img">
+            <div class="brand-text">
+                <h1>SSM EVENTZ</h1>
+                <p>LUXURY EVENTZ</p>
+            </div>
+        </a>
+
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#photobooth">AI Photo Booth</a></li>
+                <li><a href="#props">Party Props</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#enquiry">Enquiry</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+            </ul>
+
+            <div class="theme-switcher">
+                <i class="fa-solid fa-palette" style="color: var(--primary-accent); font-size: 0.85rem;"></i>
+                <select id="themeSelect" onchange="setTheme(this.value)">
+                    <option value="emerald">Emerald Luxury</option>
+                    <option value="purple">Royal Purple</option>
+                    <option value="rosegold">Rose Gold Glow</option>
+                    <option value="neon">Midnight Neon</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <img src="./logo.png" alt="SSM Eventz Logo" class="hero-logo-large">
+        <div class="hero-badge"><i class="fa-solid fa-crown"></i> COMPLETE LUXURY EVENT MANAGEMENT</div>
+        <h2>TRANSFORMING CELEBRATIONS INTO UNFORGETTABLE MEMORIES</h2>
+        <p>Decorations • Food Stalls • Live Entertainment • AI Photo Booth • Photography & Video Services</p>
+
+        <div class="btn-group">
+            <a href="#enquiry" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Enquiry</a>
+            <a href="https://wa.me/919566047449?text=Hello%20SSM%20Eventz" class="btn btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+            <a href="https://www.instagram.com/ssmpartyplanner" class="btn btn-instagram" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://jsdl.in/RSL-JST1792292774" class="btn btn-justdial" target="_blank"><i class="fa-solid fa-store"></i> View on Justdial</a>
+        </div>
+    </section>
+
+    <!-- 5 Categories Section -->
+    <section id="services" class="section">
+        <div class="section-header">
+            <span class="tag">• ALL OUR SERVICES •</span>
+            <h3>5 Categories of Party Magic</h3>
+            <p>Select a category below to explore our offerings</p>
+        </div>
+
+        <div class="category-tabs">
+            <button class="cat-btn active" onclick="showCategory('decoration', this)"><i class="fa-solid fa-gift"></i> DECORATION</button>
+            <button class="cat-btn" onclick="showCategory('entry', this)"><i class="fa-solid fa-wand-magic-sparkles"></i> GRAND ENTRY</button>
+            <button class="cat-btn" onclick="showCategory('food', this)"><i class="fa-solid fa-utensils"></i> FOOD STALLS</button>
+            <button class="cat-btn" onclick="showCategory('entertainment', this)"><i class="fa-solid fa-masks-theater"></i> ENTERTAINMENT</button>
+            <button class="cat-btn" onclick="showCategory('photography', this)"><i class="fa-solid fa-camera"></i> PHOTOGRAPHY</button>
+        </div>
+
+        <div id="category-content" class="items-grid"></div>
+    </section>
+
+    <!-- AI Photo Booth Section -->
+    <section id="photobooth" class="section">
+        <div class="section-header">
+            <span class="tag">• AI PHOTO BOOTH •</span>
+            <h3>Instant Photo Booth & QR Sharing</h3>
+            <p>Get your printed photo instantly and download the digital copy by scanning the QR Code.</p>
+        </div>
+
+        <div class="booth-grid">
+            <div class="booth-card">
+                <i class="fa-solid fa-camera"></i>
+                <h4>Instant Photography</h4>
+                <p>Professional DSLR photography with instant physical prints.</p>
+            </div>
+            <div class="booth-card">
+                <i class="fa-solid fa-print"></i>
+                <h4>Instant Printing</h4>
+                <p>Take your printed photo home within seconds.</p>
+            </div>
+            <div class="booth-card">
+                <i class="fa-solid fa-qrcode"></i>
+                <h4>QR Code Download</h4>
+                <p>Scan the QR Code to download your digital copy directly to your phone.</p>
+            </div>
+            <div class="booth-card">
+                <i class="fa-solid fa-robot"></i>
+                <h4>AI Face Search</h4>
+                <p>Coming Soon – Upload your selfie and AI instantly finds your event photos.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="https://wa.me/919566047449?text=Hello%20SSM%20Eventz,%20I%20want%20to%20book%20an%20Instant%20Photo%20Booth!" class="btn btn-primary" style="background: #d97706; color: #000;" target="_blank">
+                <i class="fa-solid fa-camera"></i> BOOK PHOTO BOOTH NOW
+            </a>
+        </div>
+    </section>
+
+    <!-- Party Props & Elements Section -->
+    <section id="props" class="section">
+        <div class="section-header">
+            <span class="tag">• EVERYTHING WE BRING •</span>
+            <h3>Party Props & Elements 🎠</h3>
+            <p>Everything you need for the perfect celebration!</p>
+        </div>
+
+        <div class="props-grid">
+            <div class="prop-card"><i class="fa-solid fa-balloon"></i><h5>Balloons</h5><p>Theme, foil & balloon arches</p></div>
+            <div class="prop-card"><i class="fa-solid fa-cake-candles"></i><h5>Cake Setup</h5><p>Cake table & dessert decor</p></div>
+            <div class="prop-card"><i class="fa-solid fa-fan"></i><h5>Florals</h5><p>Fresh & artificial floral arrangements</p></div>
+            <div class="prop-card"><i class="fa-solid fa-hat-wizard"></i><h5>Confetti</h5><p>Confetti poppers & cannons</p></div>
+            <div class="prop-card"><i class="fa-solid fa-fire"></i><h5>Candles</h5><p>LED & pillar candle decor</p></div>
+            <div class="prop-card"><i class="fa-solid fa-masks-theater"></i><h5>Props Booth</h5><p>Photo props & fun accessories</p></div>
+            <div class="prop-card"><i class="fa-solid fa-bolt"></i><h5>Pyro Effects</h5><p>Cold pyro, fog & LED sparks</p></div>
+            <div class="prop-card"><i class="fa-solid fa-gift"></i><h5>Gift Table</h5><p>Styled gift & favor displays</p></div>
+            <div class="prop-card"><i class="fa-solid fa-lightbulb"></i><h5>Fairy Lights</h5><p>String lights & LED curtains</p></div>
+            <div class="prop-card"><i class="fa-solid fa-microphone"></i><h5>Anchor & DJ</h5><p>Music, DJ & anchor services</p></div>
+            <div class="prop-card"><i class="fa-solid fa-ice-cream"></i><h5>Choc Fountain</h5><p>Chocolate & candy counters</p></div>
+            <div class="prop-card"><i class="fa-solid fa-camera"></i><h5>Photo Booth</h5><p>Instant photo booth setup</p></div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="section">
+        <div class="section-header">
+            <span class="tag">• PRICING & PLANS •</span>
+            <h3>Pick Your Perfect Package 🎁</h3>
+            <p>All packages can be fully customized to your dream event!</p>
+        </div>
+
+        <div class="packages-grid">
+            <div class="pkg-card">
+                <div>
+                    <div class="pkg-icon">🌸</div>
+                    <h4>Basic</h4>
+                    <div class="sub">A SWEET BEGINNING</div>
+                    <ul class="pkg-features">
+                        <li><i class="fa-solid fa-circle-check"></i> Balloon Decoration</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Basic Backdrop Setup</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Welcome Setup</li>
+                    </ul>
+                </div>
+                <a href="#enquiry" class="btn-pkg">BOOK NOW 🎉</a>
+            </div>
+
+            <div class="pkg-card popular">
+                <div class="pkg-badge">★ MOST POPULAR</div>
+                <div>
+                    <div class="pkg-icon">✨</div>
+                    <h4>Premium</h4>
+                    <div class="sub">THE FULL CELEBRATION</div>
+                    <ul class="pkg-features">
+                        <li><i class="fa-solid fa-circle-check"></i> Stage Decoration</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Lighting Setup</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Entrance Decoration</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Photography Support</li>
+                    </ul>
+                </div>
+                <a href="#enquiry" class="btn-pkg">BOOK NOW 🎡</a>
+            </div>
+
+            <div class="pkg-card">
+                <div>
+                    <div class="pkg-icon">👑</div>
+                    <h4>Luxury</h4>
+                    <div class="sub">GRAND IN EVERY WAY</div>
+                    <ul class="pkg-features">
+                        <li><i class="fa-solid fa-circle-check"></i> Full Event Setup</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Premium Stage Decoration</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Pyro Entry & Fog Effects</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Live Food Stalls</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Entertainment Activities</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Photography & Videography</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Customized Theme</li>
+                    </ul>
+                </div>
+                <a href="#enquiry" class="btn-pkg">BOOK NOW 👑</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section">
+        <div class="section-header">
+            <span class="tag">• HAPPY CLIENTS •</span>
+            <h3>What They're Saying 💬</h3>
+            <p>Read genuine feedback from families we've served</p>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Very neat decoration and on-time setup! Everything was exactly how we dreamed it. Highly recommended to everyone!"</p>
+                </div>
+                <div class="client-info">
+                    <div class="avatar">AK</div>
+                    <div class="client-details">
+                        <h5>Ananya & Karthik</h5>
+                        <p>Wedding • Chennai</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Creative work and excellent coordination throughout the event. Professional, attentive and so talented!"</p>
+                </div>
+                <div class="client-info">
+                    <div class="avatar">RF</div>
+                    <div class="client-details">
+                        <h5>Ramesh Family</h5>
+                        <p>Birthday Party • Coimbatore</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Loved the food stalls and grand entry! They made our wedding day unforgettable. Worth every penny!"</p>
+                </div>
+                <div class="client-info">
+                    <div class="avatar">PS</div>
+                    <div class="client-details">
+                        <h5>Priya & Suresh</h5>
+                        <p>Wedding • Madurai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Form Section -->
+    <section id="enquiry" class="section">
+        <div class="section-header">
+            <span class="tag">• GET IN TOUCH •</span>
+            <h3>Book Your Event</h3>
+            <p>Fill out the form below and we will get back to you shortly</p>
+        </div>
+
+        <form class="enquiry-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="name">YOUR NAME</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Saravanan" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">PHONE / WHATSAPP</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="event-type">EVENT TYPE</label>
+                <select id="event-type" name="event_type">
+                    <option value="" disabled selected>🎉 Select event type</option>
+                    <option value="Wedding">💒 Wedding</option>
+                    <option value="Birthday Party">🎂 Birthday Party</option>
+                    <option value="Engagement">💍 Engagement</option>
+                    <option value="Baby Shower">👶 Baby Shower</option>
+                    <option value="Naming Ceremony">🧒 Naming Ceremony</option>
+                    <option value="Housewarming">🏡 Housewarming</option>
+                    <option value="Corporate Event">💼 Corporate Event</option>
+                    <option value="Other">🎭 Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="package">PACKAGE</label>
+                <select id="package" name="package">
+                    <option value="" disabled selected>🎁 Select package</option>
+                    <option value="Basic">🌸 Basic Package</option>
+                    <option value="Premium">✨ Premium Package</option>
+                    <option value="Luxury">👑 Luxury Package</option>
+                    <option value="Custom">🌈 Custom Package</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="event-date">EVENT DATE</label>
+                <input type="date" id="event-date" name="event_date">
+            </div>
+
+            <div class="form-group">
+                <label for="message">MESSAGE / DETAILS</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us more about your event requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #d97706, #f59e0b); color: #000; font-weight: 700; padding: 15px;">
+                SEND MY ENQUIRY! 🎊
+            </button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <img src="./logo.png" alt="SSM Eventz Logo" class="footer-logo">
+        <h4 class="footer-brand">SSM EVENTZ</h4>
+        <p class="footer-sub">Luxury Event Planning & Complete Party Management</p>
+
+        <div class="footer-socials">
+            <a href="https://wa.me/919566047449" target="_blank" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/ssmpartyplanner" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="tel:9566047449" class="social-icon"><i class="fa-solid fa-phone"></i></a>
+        </div>
+
+        <div class="copyright">
+            © 2026 SSM Eventz. All Rights Reserved. Designed for Luxury Celebrations.
+        </div>
+    </footer>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        const categoryData = {
+            decoration: ["Birthday Decoration", "Wedding Decoration", "Engagement Decoration", "Baby Shower Decoration", "Naming Ceremony Setup", "Housewarming Decoration", "Surprise Decorations", "Theme Balloon Decoration", "Stage & Backdrop Setup", "Floral Decoration", "Entrance Decoration", "Couple Stage Decoration"],
+            entry: ["Bride & Groom Entry", "Car Entry Setup", "Pyro / Cold Pyro Effects", "Fog Setup", "LED Spark Effects", "Dancing Floor Smoke", "Confetti Blast", "Flower Shower Entry", "Grand Welcome Setup"],
+            food: ["Welcome Drinks Stall", "Beeda Stall", "Popcorn Stall", "Sweet Candy Stall", "Fruit Salad Counter", "Panipuri Live Stall", "Chocolate Fountain", "Ice Cream Counter", "Mocktail Bar Setup", "Juice Counter", "Live Snack Counters"],
+            entertainment: ["Mehandi Artist Booking", "Bridal Assistance", "Kids Entertainment", "Tattoo Stall", "Magic Show", "DJ & Music Setup", "Dance Floor Setup", "Anchor Services", "Fun Activities & Games"],
+            photography: ["Studio Photoshoot", "Couple Photoshoot", "Pre-Wedding Shoot", "Event Photography", "Candid Photography", "Drone Shoot", "Instant Photo Booth", "Cinematic Video Shoot", "Traditional Photography"]
+        };
+
+        function showCategory(catKey, btnElement) {
+            const container = document.getElementById('category-content');
+            const buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            if(btnElement) btnElement.classList.add('active');
+
+            const items = categoryData[catKey] || [];
+            container.innerHTML = items.map(item => `
+                <div class="item-card">
+                    <span class="dot"></span>
+                    <span>${item}</span>
+                </div>
+            `).join('');
+        }
+
+        function setTheme(themeName) {
+            document.body.setAttribute('data-theme', themeName);
+            document.getElementById('themeSelect').value = themeName;
+            localStorage.setItem('ssm_theme', themeName);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            showCategory('decoration', document.querySelector('.cat-btn'));
+            const savedTheme = localStorage.getItem('ssm_theme');
+            if(savedTheme) setTheme(savedTheme);
+        });
+    </script>
+</body>
+</html>
