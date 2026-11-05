@@ -994,7 +994,7 @@
             <p>Fill out the form below and we will get back to you shortly</p>
         </div>
 
-        <form class="enquiry-form" action="https://formspree.io/f/mnpprgzj" method="POST">
+        <form id="bookingform" onsubmit="sendToWhatsApp(event)">
             <div class="form-group">
                 <label for="name">YOUR NAME</label>
                 <input type="text" id="name" name="name" placeholder="e.g. Saravanan" required>
@@ -1060,7 +1060,7 @@
         </div>
 
         <div class="copyright">
-            © 2026 SSM Eventz. All Rights Reserved. Designed by SARAVANA for Owner MADHANRAJ of SSm eventz & Luxury Celebrations.
+            © 2026 SSM Eventz. All Rights Reserved. Designed by SARAVANA for 👑 MADHANRAJ of SSm eventz & Luxury Celebrations.
         </div>
     </footer>
 
@@ -1101,5 +1101,28 @@
             if(savedTheme) setTheme(savedTheme);
         });
     </script>
+    <script>
+function sendToWhatsApp(event) {
+  event.preventDefault();
+
+  let eventType = document.querySelector('[name="event_type"]')?.value || "";
+  let packageType = document.querySelector('[name="package"]')?.value || "";
+  let eventDate = document.querySelector('[name="event_date"]')?.value || "";
+  let phone = document.querySelector('[name="phone"]')?.value || "";
+  let message = document.querySelector('[name="message"]')?.value || "";
+
+  let myPhoneNumber = "919566047449";
+
+  let url = `https://wa.me/${myPhoneNumber}?text=` +
+    `*New Booking Enquiry*%0A` +
+    `Event Type: ${encodeURIComponent(eventType)}%0A` +
+    `Package: ${encodeURIComponent(packageType)}%0A` +
+    `Date: ${encodeURIComponent(eventDate)}%0A` +
+    `Phone: ${encodeURIComponent(phone)}%0A` +
+    `Message: ${encodeURIComponent(message)}`;
+
+  window.open(url, '_blank').focus();
+}
+</script>
 </body>
 </html>
