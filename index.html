@@ -1105,6 +1105,7 @@
 function sendToWhatsApp(event) {
   event.preventDefault();
 
+  let name = document.querySelector('[name="name"]')?.value ||"";
   let eventType = document.querySelector('[name="event_type"]')?.value || "";
   let packageType = document.querySelector('[name="package"]')?.value || "";
   let eventDate = document.querySelector('[name="event_date"]')?.value || "";
