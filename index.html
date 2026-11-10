@@ -1113,7 +1113,7 @@ function sendToWhatsApp(event) {
 
   let myPhoneNumber = "919566047449";
 
-  let url = `https://wa.me/${myPhoneNumber}?text=*New Booking Enquiry*%0AEvent Type: ${encodeURIComponent(eventType)}%0APackage: ${encodeURIComponent(packageType)}%0A Date: ${encodeURIComponent(eventDate)}%0APhone: ${encodeURIComponent(phone)}%0AMessage: ${encodeURIComponent(message)}`;
+  let url = `https://wa.me/${myPhoneNumber}?text=*New Booking Enquiry*%0AName: ${encodeURIComponent(name)}%0AEvent Type: ${encodeURIComponent(eventType)}%0APackage: ${encodeURIComponent(packageType)}%0A Date: ${encodeURIComponent(eventDate)}%0APhone: ${encodeURIComponent(phone)}%0AMessage: ${encodeURIComponent(message)}`;
 
   window.open(url, '_blank').focus();
 }
