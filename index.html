@@ -933,59 +933,7 @@
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews" class="section">
-        <div class="section-header">
-            <span class="tag">• HAPPY CLIENTS •</span>
-            <h3>What They're Saying 💬</h3>
-            <p>Read genuine feedback from families we've served</p>
-        </div>
-
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Very neat decoration and on-time setup! Everything was exactly how we dreamed it. Highly recommended to everyone!"</p>
-                </div>
-                <div class="client-info">
-                    <div class="avatar">AK</div>
-                    <div class="client-details">
-                        <h5>Kural & Agan</h5>
-                        <p>Wedding • Chennai</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Creative work and excellent coordination throughout the event. Professional, attentive and so talented!"</p>
-                </div>
-                <div class="client-info">
-                    <div class="avatar">RF</div>
-                    <div class="client-details">
-                        <h5>karthik Family</h5>
-                        <p>Birthday Party • madurai</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Loved the food stalls and grand entry! They made our wedding day unforgettable. Worth every penny!"</p>
-                </div>
-                <div class="client-info">
-                    <div class="avatar">PS</div>
-                    <div class="client-details">
-                        <h5>Trisha & Vijay</h5>
-                        <p>Wedding • coimbatore</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
     <!-- Enquiry Form Section -->
     <section id="enquiry" class="section">
         <div class="section-header">
@@ -1046,6 +994,121 @@
             </button>
         </form>
     </section>
+
+     <!-- Reviews Section -->
+    <section id="reviews" class="section">
+        <div class="section-header">
+            <span class="tag">• HAPPY CLIENTS •</span>
+            <h3>What They're Saying 💬</h3>
+            <p>Read genuine feedback from families we've served</p>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Very neat decoration and on-time setup! Everything was exactly how we dreamed it. Highly recommended to everyone!"</p>
+                </div>
+                <div class="client-info">
+                    <div class="avatar">AK</div>
+                    <div class="client-details">
+                        <h5>Kural & Agan</h5>
+                        <p>Wedding • Chennai</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Creative work and excellent coordination throughout the event. Professional, attentive and so talented!"</p>
+                </div>
+                <div class="client-info">
+                    <div class="avatar">RF</div>
+                    <div class="client-details">
+                        <h5>karthik Family</h5>
+                        <p>Birthday Party • madurai</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Loved the food stalls and grand entry! They made our wedding day unforgettable. Worth every penny!"</p>
+                </div>
+                <div class="client-info">
+                    <div class="avatar">PS</div>
+                    <div class="client-details">
+                        <h5>Trisha & Vijay</h5>
+                        <p>Wedding • coimbatore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Enquiry Form Section -->
+    <section id="enquiry" class="section">
+        <div class="section-header">
+            <span class="tag">• GET IN TOUCH •</span>
+            <h3>Book Your Event</h3>
+            <p>Fill out the form below and we will get back to you shortly</p>
+        </div>
+
+        <form id="bookingform" onsubmit="sendToWhatsApp(event)">
+            <div class="form-group">
+                <label for="name">YOUR NAME</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Saravanan" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">PHONE / WHATSAPP</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="event-type">EVENT TYPE</label>
+                <select id="event-type" name="event_type">
+                    <option value="" disabled selected>🎉 Select event type</option>
+                    <option value="Wedding">💒 Wedding</option>
+                    <option value="Birthday Party">🎂 Birthday Party</option>
+                    <option value="Engagement">💍 Engagement</option>
+                    <option value="Baby Shower">👶 Baby Shower</option>
+                    <option value="Naming Ceremony">🧒 Naming Ceremony</option>
+                    <option value="Housewarming">🏡 Housewarming</option>
+                    <option value="Corporate Event">💼 Corporate Event</option>
+                    <option value="Other">🎭 Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="package">PACKAGE</label>
+                <select id="package" name="package">
+                    <option value="" disabled selected>🎁 Select package</option>
+                    <option value="Basic">🌸 Basic Package</option>
+                    <option value="Premium">✨ Premium Package</option>
+                    <option value="Luxury">👑 Luxury Package</option>
+                    <option value="Custom">🌈 Custom Package</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="event-date">EVENT DATE</label>
+                <input type="date" id="event-date" name="event_date">
+            </div>
+
+            <div class="form-group">
+                <label for="message">MESSAGE / DETAILS</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us more about your event requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #d97706, #f59e0b); color: #000; font-weight: 700; padding: 15px;">
+                DIRECT BOOKING FORM! 🎊
+            </button>
+        </form>
+    </section>
+
 
     <!-- Footer -->
     <footer>
